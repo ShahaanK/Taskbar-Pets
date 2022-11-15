@@ -11,3 +11,6 @@ class Pets():
         self.state = True; # Alive or dead.
         self.age = 0; # Age of pet.
 
+    def display(self):
+        pygame.image.load("Pics/???"); #FIXME: ADD IMAGE URL.
+        pygame.display.blit()
