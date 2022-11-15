@@ -32,7 +32,7 @@ smallfont = pygame.font.SysFont('Corbel', 35)
 
 # rendering a text written in
 # this font
-text = smallfont.render('quit', True, color)
+text = smallfont.render('Quit', True, color)
 play_text = smallfont.render('Play', True, color)
 
 while True:
@@ -64,24 +64,24 @@ while True:
     # if half the screen is less than the mouse x position, less than width/2+140 of the screen
     # and
     # screen height / 2 is less than the mouse y position, less than screen height/2+40
-    if width / 2 <= mouse[0] <= width / 2 + 140 and height / 2 <= mouse[1] <= height / 2 + 40:
-        pygame.draw.rect(screen, color_light, [width / 2, height / 2, 200, 100])
+    if width / 2 - 50 <= mouse[0] <= width / 2 + 140 and height / 2 - 5 <= mouse[1] <= height / 2 + 30:
+        pygame.draw.rect(screen, color_light, [width / 2 - 80, height / 2 - 5, 140, 40])
 
     else:
-        pygame.draw.rect(screen, color_dark, [width / 2, height / 2, 140, 40])
+        pygame.draw.rect(screen, color_dark, [width / 2 - 80, height / 2 - 5, 140, 40])
 
         # superimposing the text onto our button
-    screen.blit(text, (width / 2 + 50, height / 2))
+    screen.blit(text, (width / 2 - 50, height / 2))
 
-# For the menu button
-    if width / 2 <= mouse[0] <= width / 2 + 200 and height / 2 <= mouse[1] <= height / 2 + 100:
-        pygame.draw.rect(screen, color_light, [50, 50, 200, 100])
+    # For the play
+    if width / 2 - 50 <= mouse[0] <= width / 2 + 140 and height / 2 - 30 <= mouse[1] <= height / 2:
+        pygame.draw.rect(screen, color_light, [width / 2 - 80, height / 2 - 50, 140, 40])
 
     else:
-        pygame.draw.rect(screen, color_dark, [50, 50, 200, 100])
+        pygame.draw.rect(screen, color_dark, [width / 2 - 80, height / 2 - 50, 140, 40])
 
-        # superimposing the text onto our button
-    screen.blit(play_text, (width / 2 + 50, height / 4))
+    # superimposing the text onto our button
+    screen.blit(play_text, (width / 2 - 50, height / 2 - 50))
 
     # updates the frames of the game
     pygame.display.update()
