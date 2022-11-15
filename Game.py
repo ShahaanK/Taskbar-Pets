@@ -10,9 +10,9 @@ if __name__ == "__main__": # Initializer of our game so we load here.
     screen = pygame.display.set_mode(size)  # Sets the size of our screen.
     pygame.display.set_caption("Taskbar Pets")
 
-    doggoImage = pygame.image.load("Pics/doggo.JPG");
+    doggoImage = pygame.image.load("Pics/doggo.JPG"); # Setting the image.
 
-    doggo = Pets(300, 200, doggoImage)
+    doggo = Pets(300, 200, doggoImage) # Initializing the first pet.
 
     done = False # Loop until the user clicks the close button. At end.
 
@@ -27,7 +27,7 @@ if __name__ == "__main__": # Initializer of our game so we load here.
         screen.fill(0)  # Background color.
         pygame.draw.rect(screen, (0, 111, 111), (50,50,100,100), 0)
 
-        doggo.draw(screen)
+        doggo.draw(screen) # Uses the method to draw it to screen.
 
 
         pygame.display.flip() # Updates the game screen so keep on bottom.

@@ -13,3 +13,4 @@ class Pets():
 
     def draw(self, screen):
         screen.blit(self.imgOfPet, (self.xPos, self.yPos))
+
