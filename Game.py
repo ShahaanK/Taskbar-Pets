@@ -22,7 +22,7 @@ if __name__ == "__main__": # Initializer of our game so we load here.
         # ---- Main event loop.
         for event in pygame.event.get(): # User does something.
             if event.type == pygame.QUIT: # If they click close.
-                done = True; # Change the flag so we are done
+                done = True # Change the flag so we are done
 
         screen.fill(0)  # Background color.
         pygame.draw.rect(screen, (0, 111, 111), (50,50,100,100), 0)
