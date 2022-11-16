@@ -3,6 +3,15 @@ import pygame
 # Calling the classes.
 from Pets import Pets
 
+# Define some colors.
+BLACK = (0,   0,   0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+
+# Define some constants.
+MAX_HEALTH = 100
 
 def keyCheck():
     # If you press space bar the dogs hunger will go up.
@@ -27,6 +36,7 @@ if __name__ == "__main__":  # Initializer of our game so we load here.
 
     # Setting the images.
     doggoImage = pygame.image.load("Pics/doggo.JPG");
+    doggoImage.set_colorkey((220, 210, 198))
     deadDoggoImage = pygame.image.load("Pics/doggoCute.png")
 
     # Initializing the first pets.
@@ -46,24 +56,34 @@ if __name__ == "__main__":  # Initializer of our game so we load here.
 
         # Drawing stuff to the screen ------------------------------------------------------
         screen.fill(0)  # Background color.
-        pygame.draw.rect(screen, (0, 111, 111), (50, 50, 100, 100), 0)
-        # If the dog is alive then do all this.
 
+
+        # If the dog is alive then do all this.
         if doggo.state:  # FIXME: Change doggo to an array or array list later so we can accomadte multiple pets.
 
             doggo.draw(screen)  # Uses the method to draw it to screen.
 
             # Print out the hunger.
-            hunger_text = myfont.render("Hunger: " + str(doggo.hunger), 1, (0, 255, 124))  # Setting text.
-            screen.blit(hunger_text, (20, 20))  # Printing text to screen.
+            hunger_text = myfont.render("Hunger: " + str(doggo.hunger), 3, (0, 255, 124))  # Setting text.
+            screen.blit(hunger_text, (60, 500))  # Printing text to screen.
+            # Attempt at making a hunger bar.
+            # MAX_HEALTH*1.5 to make bar longer, 10 is the thickness of the bar.
+            pygame.draw.rect(screen, WHITE, (60, 550, MAX_HEALTH*1.5, 10))
+            pygame.draw.rect(screen, BLUE, (60, 550, doggo.hunger*1.5, 10))
 
             # Print out the Health.
             hunger_text = myfont.render("Health: " + str(doggo.health), 1, (0, 255, 124))  # Setting text.
-            screen.blit(hunger_text, (40, 40))  # Printing text to screen.
+            screen.blit(hunger_text, (335, 500))  # Printing text to screen.
+            # Attempt at making a health bar.
+            pygame.draw.rect(screen, WHITE, (335, 550, MAX_HEALTH * 1.5, 10))
+            pygame.draw.rect(screen, RED, (335, 550, doggo.health * 1.5, 10))
 
             # Print out the Mood.
             hunger_text = myfont.render("Mood: " + str(doggo.mood), 1, (0, 255, 124))  # Setting text.
-            screen.blit(hunger_text, (60, 60))  # Printing text to screen.
+            screen.blit(hunger_text, (610, 500))  # Printing text to screen.
+            # Attempt at making a mood bar.
+            pygame.draw.rect(screen, WHITE, (610, 550, MAX_HEALTH * 1.5, 10))
+            pygame.draw.rect(screen, GREEN, (610, 550, doggo.mood * 1.5, 10))
 
         else:
             #Print dog dead image.
