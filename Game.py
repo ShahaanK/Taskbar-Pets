@@ -35,9 +35,11 @@ if __name__ == "__main__":  # Initializer of our game so we load here.
     myfont = pygame.font.Font('freesansbold.ttf', 30)  # Basic font.
 
     #ATTEMPT TO MAKE ANIMATIONS THEN MOVE FROM MAIN TO NEW FILE.
-    doggoImage = pygame.image.load("Pics/DogGifFrames/doggy_1.png"), pygame.image.load("Pics/DogGifFrames/doggy_2.png"), \
+    doggoImageArray = pygame.image.load("Pics/DogGifFrames/doggy_1.png"), pygame.image.load("Pics/DogGifFrames/doggy_2.png"), \
                  pygame.image.load("Pics/DogGifFrames/doggy_3.png"), pygame.image.load("Pics/DogGifFrames/doggy_4.png"), \
                      pygame.image.load("Pics/DogGifFrames/doggy_5.png"), pygame.image.load("Pics/DogGifFrames/doggy_6.png")
+
+
 
     clock = pygame.time.Clock()
     animationCounter = 0
@@ -71,10 +73,14 @@ if __name__ == "__main__":  # Initializer of our game so we load here.
         screen.fill(0)  # Background color.
 
         # TEMP ANIMATION STUFF
-        clock.tick(20)
+        clock.tick(60)
 
-        if animationCounter == 0:
-            screen.blit(doggoImage[0], (300, 200))
+        for i in range(6):
+            if animationCounter == 0:
+                #doggoImageArray[0] = pygame.transform.scale(doggoImageArray[0], (doggoImageArray[0].get_width() / 2, doggoImageArray[0].get_height() / 2))
+                doggoImageArray[i].set_colorkey((132, 126, 135))
+                screen.blit((doggoImageArray[i]), (0, 0))
+
 
 
         # If the dog is alive then do all this.
