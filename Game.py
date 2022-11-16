@@ -26,7 +26,7 @@ if __name__ == "__main__": # Initializer of our game so we load here.
     myfont = pygame.font.Font('freesansbold.ttf', 30) # Basic font.
 
     # Setting the images.
-    doggoImage = pygame.image.load("Pics/doggo.JPG");
+    doggoImage = pygame.image.load("Pics/doggo.JPG")
 
     # Initializing the first pets.
     doggo = Pets(300, 200, doggoImage)

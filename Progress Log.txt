@@ -1,3 +1,5 @@
 2022-11-15
 Shahaan: Work on making max and min for the health, incorporate a death state. Work more on creating animations and how we can cycle threw them. Link the menu to the game.
-Navi:
+Navi: Basic Menu with Play and Quit and og background, Quit Button Works, lights up when hovered on
+
+
