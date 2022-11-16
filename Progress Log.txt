@@ -3,10 +3,13 @@ Shahaan: Work on making max and min for the health, incorporate a death state.
 Work more on creating animations and how we can cycle threw them.
 Link the menu to the game.
 
+Navi:
+Added basic menu, Play and Quit Button, Quit Button Works
+
 2022-11-16
 Website for splitting Gif: https://ezgif.com/split/ezgif-4-6b8ce71dab.gif
 Doggo image gif: https://cdnb.artstation.com/p/assets/images/images/044/207/609/original/madpuppy-dogy.gif?1639395201
 Need to work more on animation and fix it so we can animate the dog properly.
 
 Navi:
-Working through menu right now.
+Menu upgrades, added options button, new logo and colours
