@@ -2,6 +2,9 @@
 Shahaan: Work on making max and min for the health, incorporate a death state.
 Work more on creating animations and how we can cycle threw them.
 Link the menu to the game.
+Website for splitting Gif: https://ezgif.com/split/ezgif-4-6b8ce71dab.gif
+Doggo image gif: https://cdnb.artstation.com/p/assets/images/images/044/207/609/original/madpuppy-dogy.gif?1639395201
+
 
 Navi:
 Working through menu right now.

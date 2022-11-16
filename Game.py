@@ -34,9 +34,22 @@ if __name__ == "__main__":  # Initializer of our game so we load here.
     pygame.display.set_caption("Taskbar Pets")
     myfont = pygame.font.Font('freesansbold.ttf', 30)  # Basic font.
 
+    #ATTEMPT TO MAKE ANIMATIONS THEN MOVE FROM MAIN TO NEW FILE.
+    doggoImage = pygame.image.load("Pics/DogGifFrames/doggy_1.png"), pygame.image.load("Pics/DogGifFrames/doggy_2.png"), \
+                 pygame.image.load("Pics/DogGifFrames/doggy_3.png"), pygame.image.load("Pics/DogGifFrames/doggy_4.png"), \
+                     pygame.image.load("Pics/DogGifFrames/doggy_5.png"), pygame.image.load("Pics/DogGifFrames/doggy_6.png")
+
+    clock = pygame.time.Clock()
+    animationCounter = 0
+
     # Setting the images.
-    doggoImage = pygame.image.load("Pics/doggo.JPG");
-    doggoImage.set_colorkey((220, 210, 198))
+    doggoImage = pygame.image.load("Pics/DogGifFrames/doggy_1.png")
+    doggoImageWidth = doggoImage.get_width()
+    doggoImageHeight = doggoImage.get_height()
+
+    doggoImage = pygame.transform.scale(doggoImage, (doggoImageWidth/2,doggoImageHeight/2))
+    doggoImage.set_colorkey((132, 126, 135)) # Removes one of the colors in the background, can't remove both cause this will only work on last color written.
+
     deadDoggoImage = pygame.image.load("Pics/doggoCute.png")
 
     # Initializing the first pets.
@@ -57,11 +70,17 @@ if __name__ == "__main__":  # Initializer of our game so we load here.
         # Drawing stuff to the screen ------------------------------------------------------
         screen.fill(0)  # Background color.
 
+        # TEMP ANIMATION STUFF
+        clock.tick(20)
+
+        if animationCounter == 0:
+            screen.blit(doggoImage[0], (300, 200))
+
 
         # If the dog is alive then do all this.
         if doggo.state:  # FIXME: Change doggo to an array or array list later so we can accomadte multiple pets.
 
-            doggo.draw(screen)  # Uses the method to draw it to screen.
+            #doggo.draw(screen)  # Uses the method to draw it to screen.
 
             # Print out the hunger.
             hunger_text = myfont.render("Hunger: " + str(doggo.hunger), 3, (0, 255, 124))  # Setting text.
