@@ -21,13 +21,23 @@ class Pets():
         self.hunger += 5
         self.health += 2
         self.mood += 2
+        self.death()
 
     def play(self): # Play with the pet to decrease the hunger and health but increase mood.
         self.hunger -= 3
         self.health -= 5
         self.mood += 5
+        self.death()
+
 
     def sleep(self): # If the pet sleeps, recover health but decrease hunger and mood.
         self.health += 10
         self.hunger -= 3
         self.mood -= 1
+        self.death()
+
+
+    def death(self):
+        # If the pet's health, mood or hunger hits 0, kill the pet.
+        if self.health <= 0 or self.mood <= 0 or self.hunger <= 0:
+            self.state = False

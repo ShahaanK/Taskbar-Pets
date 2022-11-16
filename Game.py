@@ -16,51 +16,57 @@ def keyCheck():
         doggo.sleep()
 
 
-if __name__ == "__main__": # Initializer of our game so we load here.
+if __name__ == "__main__":  # Initializer of our game so we load here.
     pygame.init()
 
     # UI stuff.
     size = (800, 600)
     screen = pygame.display.set_mode(size)  # Sets the size of our screen.
     pygame.display.set_caption("Taskbar Pets")
-    myfont = pygame.font.Font('freesansbold.ttf', 30) # Basic font.
+    myfont = pygame.font.Font('freesansbold.ttf', 30)  # Basic font.
 
     # Setting the images.
     doggoImage = pygame.image.load("Pics/doggo.JPG");
+    deadDoggoImage = pygame.image.load("Pics/doggoCute.png")
 
     # Initializing the first pets.
     doggo = Pets(300, 200, doggoImage)
+    doggoDead = Pets(300, 200, deadDoggoImage)
 
-    done = False # Loop until the user clicks the close button. At end.
+    done = False  # Loop until the user clicks the close button. At end.
 
     # --- Main Program loop
     while not done:
         # ---- Main event loop.
-        for event in pygame.event.get(): # User does something.
-            if event.type == pygame.QUIT: # If they click close.
-                done = True # Change the flag so we are done
-            elif event.type == pygame.KEYDOWN: # User preses a key. FIXME: Change later to be mouse button thingy
+        for event in pygame.event.get():  # User does something.
+            if event.type == pygame.QUIT:  # If they click close.
+                done = True  # Change the flag so we are done
+            elif event.type == pygame.KEYDOWN:  # User preses a key. FIXME: Change later to be mouse button thingy
                 keyCheck()
 
         # Drawing stuff to the screen ------------------------------------------------------
         screen.fill(0)  # Background color.
         pygame.draw.rect(screen, (0, 111, 111), (50, 50, 100, 100), 0)
+        # If the dog is alive then do all this.
 
-        doggo.draw(screen) # Uses the method to draw it to screen.
+        if doggo.state:  # FIXME: Change doggo to an array or array list later so we can accomadte multiple pets.
 
-        # Print out the hunger.
-        hunger_text = myfont.render("Hunger: " + str(doggo.hunger), 1, (0, 255, 124)) # Setting text.
-        screen.blit(hunger_text, (20, 20)) # Printing text to screen.
+            doggo.draw(screen)  # Uses the method to draw it to screen.
 
-        # Print out the Health.
-        hunger_text = myfont.render("Health: " + str(doggo.health), 1, (0, 255, 124))  # Setting text.
-        screen.blit(hunger_text, (40, 40))  # Printing text to screen.
+            # Print out the hunger.
+            hunger_text = myfont.render("Hunger: " + str(doggo.hunger), 1, (0, 255, 124))  # Setting text.
+            screen.blit(hunger_text, (20, 20))  # Printing text to screen.
 
-        # Print out the Mood.
-        hunger_text = myfont.render("Mood: " + str(doggo.mood), 1, (0, 255, 124))  # Setting text.
-        screen.blit(hunger_text, (60, 60))  # Printing text to screen.
+            # Print out the Health.
+            hunger_text = myfont.render("Health: " + str(doggo.health), 1, (0, 255, 124))  # Setting text.
+            screen.blit(hunger_text, (40, 40))  # Printing text to screen.
 
-        pygame.display.flip() # Updates the game screen so keep on bottom.
+            # Print out the Mood.
+            hunger_text = myfont.render("Mood: " + str(doggo.mood), 1, (0, 255, 124))  # Setting text.
+            screen.blit(hunger_text, (60, 60))  # Printing text to screen.
 
+        else:
+            #Print dog dead image.
+            doggoDead.draw(screen)
 
-
+        pygame.display.flip()  # Updates the game screen so keep on bottom.
